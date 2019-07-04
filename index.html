@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>netlinkwrapper Documentation</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    
+    <meta name="description" content="Documentation for the netlinkwrapper Node.js module" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"netlinkwrapper Documentation","meta":{"title":"netlinkwrapper Documentation","description":"Documentation for the netlinkwrapper Node.js module","footer":"&copy; Jacob Fischer","noSourceFiles":true},"default":{}};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">netlinkwrapper Documentation</a></h3>
+
+    
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Docs">
+    </div>
+    
+    
+    
+<ul class="list top-list">
+
+    <li class="item type-class" data-name="netlinkwrapper">
+        <span class="title">
+            <a href="netlinkwrapper.html">netlinkwrapper</a>
+            
+        </span>
+        <ul class="members itemMembers">
+        
+        </ul>
+        <ul class="typedefs itemMembers">
+        
+        </ul>
+        <ul class="methods itemMembers">
+        
+        <span class="subtitle">Methods</span>
+        
+            <li data-name="netlinkwrapper#blocking"><a href="netlinkwrapper.html#blocking">blocking</a></li>
+        
+            <li data-name="netlinkwrapper#connect"><a href="netlinkwrapper.html#connect">connect</a></li>
+        
+            <li data-name="netlinkwrapper#disconnect"><a href="netlinkwrapper.html#disconnect">disconnect</a></li>
+        
+            <li data-name="netlinkwrapper#read"><a href="netlinkwrapper.html#read">read</a></li>
+        
+            <li data-name="netlinkwrapper#write"><a href="netlinkwrapper.html#write">write</a></li>
+        
+        </ul>
+        <ul class="events itemMembers">
+        
+        </ul>
+        
+    </li>
+
+</ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="index.html" data-namespaces="false">Index</h1>
+        
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article class="readme"><h1>netlinkwrapper</h1>
+<p>This is a simple node-gyp module wrapper for the C++ library <a target="_blank" href="https://github.com/Lichtso/netLink">netLink</a> v1.0.0_pre6. Meaning this is a very simple wrapper for a very simple TCP library. Also, and perhaps most importantly, this is a TCP implementation that only works synchronously, as opposed to Node's asynchronous paradigm.</p>
+<h2>Purpose</h2>
+<p>Obviously node's net module is far more suited for TCP communications that this module. However, the net module can only work asynchronously, as is node's design. However if you are in the <strong>very</strong> rare situation where you need synchronous reading of sockets across platforms then this may suit you.</p>
+<h2>How to use</h2>
+<p>As with most node modules, use npm to install it for you.</p>
+<p><code>npm install</code></p>
+<p><em>Note</em>: <a target="_blank" href="https://github.com/nodejs/node-gyp">node-gyp</a> is a dependency.</p>
+<h3>Requirements</h3>
+<p>As mentioned above, have <a target="_blank" href="https://github.com/nodejs/node-gyp">node-gyp</a> installed.</p>
+<p>On Windows make sure you have the WIndows Build Tools installed (for ws2_32.lib). The most common way to attain these build tools is to just install <a target="_blank" href="https://www.visualstudio.com/downloads/download-visual-studio-vs">Visual Studio 2013</a>.</p>
+<h2>Example</h2>
+<pre class="prettyprint source lang-javascript"><code>var netlinkwrapper = require(&quot;netlinkwrapper&quot;);
+
+var netlink = new netlinkwrapper();
+
+netlink.connect(3000, &quot;localhost&quot;);
+netlink.blocking(false);
+
+netlink.write(&quot;Are we human, or are we dancer?&quot;);
+
+while(true) {
+    var str = netlink.read(1024);
+    console.log(&quot;read: &quot; + str);
+}
+</code></pre>
+<h2>Docs</h2>
+<p>Docs can be found online at <a target="_blank" href="https://jacobfischer.github.io/netlinkwrapper/">GitHub</a>.</p>
+<h2>Alternatives</h2>
+<p>If you are looking for similar functionality, but <strong>without</strong> the node-gyp dependency I have made a similar (but much slower) module, <a target="_blank" href="https://github.com/JacobFischer/sync-socket">SyncSocket</a>.</p>
+<h2>Why the old version, and why that library?</h2>
+<p>Because it was the easiest for me to get working and met my needs.</p></article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer>
+            
+                &copy; Jacob Fischer &mdash;
+            
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Thu Jul 04 2019 14:55:04 GMT+0000 (Coordinated Universal Time)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
